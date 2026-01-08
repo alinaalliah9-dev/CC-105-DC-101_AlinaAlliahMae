@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner 🎒</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗺️ Travel Planner</h1>
+            <p class="tagline">Let's explore!</p>
+        </header>
+
+        <!-- Add New Plan Form -->
+        <div class="form-container">
+            <h2>✨ Add New Adventure</h2>
+            <form id="planForm">
+                <input type="hidden" id="planId" name="planId">
+                <div class="form-group">
+                    <label for="place">📍 Destination</label>
+                    <input type="text" id="place" name="place" required placeholder="Where are we going?">
+                </div>
+                <div class="form-group">
+                    <label for="targetDate">📅 Target Date</label>
+                    <input type="date" id="targetDate" name="targetDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="todoDescription">📝 To-Do Description</label>
+                    <textarea id="todoDescription" name="todoDescription" rows="4" required placeholder="What will we do there?"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="submitBtn">Add Plan</button>
+                <button type="button" class="btn btn-secondary" id="cancelBtn" style="display:none;">Cancel</button>
+            </form>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="plans">🎒 My Plans</button>
+            <button class="tab-btn" data-tab="memories">💝 Memories</button>
+        </div>
+
+        <!-- Plans Section -->
+        <div id="plansSection" class="tab-content active">
+            <h2>🗺️ Upcoming Adventures</h2>
+            <div id="plansList" class="cards-grid"></div>
+        </div>
+
+        <!-- Memories Section -->
+        <div id="memoriesSection" class="tab-content">
+            <h2>💝 Completed Adventures</h2>
+            <div id="memoriesList" class="cards-grid"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Completion -->
+    <div id="completionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>🎉 Adventure Complete!</h2>
+            <form id="completionForm" enctype="multipart/form-data">
+                <input type="hidden" id="completePlanId" name="completePlanId">
+                <div class="form-group">
+                    <label for="completionText">📖 Share your story</label>
+                    <textarea id="completionText" name="completionText" rows="4" placeholder="Tell us about your adventure!"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="completionImage">📷 Upload a memory</label>
+                    <input type="file" id="completionImage" name="completionImage" accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-primary">Save to Memories</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
